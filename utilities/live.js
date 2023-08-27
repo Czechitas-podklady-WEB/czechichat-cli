@@ -3,7 +3,6 @@ import { logMessage } from './logMessage.js'
 
 export const live = async () => {
 	let lastMessageId = null
-	let isFirst = true
 	console.log('Poslední zprávy:')
 	while (true) {
 		const response = await fetch(
@@ -26,8 +25,7 @@ export const live = async () => {
 		if (newMessages.length > 0) {
 			newMessages.reverse()
 			newMessages.forEach((message) => {
-				logMessage(message, isFirst)
-				isFirst = false
+				logMessage(message)
 			})
 			lastMessageId = newMessages.at(0).id
 		}

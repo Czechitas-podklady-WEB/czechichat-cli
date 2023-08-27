@@ -1,10 +1,10 @@
-export const logMessage = ({ name, message, date }, isFirst = false) => {
+export const logMessage = ({ name, message, date }, isLast = false) => {
 	const header = `${name} (${date})`
 	const line = `\t${''.padStart(header.length, '-')}`
-	if (isFirst) {
-		console.log(line)
-	}
+	console.log(line)
 	console.log(`\t${header}`)
 	console.log(`\t${message}`)
-	console.log(line)
+	if (isLast) {
+		console.log(line)
+	}
 }

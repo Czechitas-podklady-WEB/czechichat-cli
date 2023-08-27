@@ -8,7 +8,7 @@ export const list = async () => {
 	messages
 		.slice(0, 10)
 		.reverse()
-		.forEach((message, index) => {
-			logMessage(message, index === 0)
+		.forEach((message, index, messages) => {
+			logMessage(message, index === messages.length - 1)
 		})
 }
