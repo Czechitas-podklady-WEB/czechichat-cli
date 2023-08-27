@@ -1,6 +1,6 @@
 {
 	"name": "@czechitas/chat",
-	"version": "1.1.1",
+	"version": "2.0.0",
 	"description": "Rozhraní pro komunikaci s https://czechichat.deno.dev/.",
 	"main": "index.js",
 	"type": "module",
