@@ -1,28 +1,20 @@
-import os from 'os'
+import { list } from './utilities/list.js'
+import { live } from './utilities/live.js'
+import { send } from './utilities/send.js'
 
-const name = os.userInfo().username
-const [_a, _b, message] = process.argv
+const [_a, _b, command, message] = process.argv
 
-try {
-	console.log('Odesílá se zpráva:')
-	console.log(`\tJméno: ${name}`)
-	console.log(`\tText: ${message}`)
-	const response = await fetch('https://czechichat.deno.dev/api/send-message', {
-		method: 'POST',
-		headers: {
-			'content-type': 'application/json',
-		},
-		body: JSON.stringify({ name, message }),
-	})
-	if (!response.ok || (await response.json()).status !== 'ok') {
-		throw new Error('Response status not ok.')
+if (command === 'send') {
+	await send(message)
+} else if (command === 'list') {
+	await list()
+} else if (command === 'live') {
+	await live()
+} else {
+	if (command === undefined) {
+		console.error(`Chybí příkaz.`)
+	} else {
+		console.error(`Neznámý příkaz "${command}".`)
 	}
-	console.log('Zpráva byla úspěšně odeslána. 🎉')
-	console.log(
-		'Všechny poslední zprávy si můžete prohlédnout na https://czechichat.deno.dev/.',
-	)
-} catch (error) {
-	console.error(error)
-	console.error('Odesílání zprávy se nezdařilo. 😵')
 	process.exit(1)
 }
