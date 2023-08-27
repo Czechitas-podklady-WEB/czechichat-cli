@@ -16,7 +16,7 @@ npx @czechitas/chat send "Ahoj světe!"
 npx @czechitas/chat list
 ```
 
-### Vypsání sledování nově příchozích zpráv
+### Sledování nově příchozích zpráv
 
 ```sh
 npx @czechitas/chat live
