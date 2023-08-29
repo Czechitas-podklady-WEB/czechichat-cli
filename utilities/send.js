@@ -21,9 +21,6 @@ export const send = async (message) => {
 			throw new Error('Response status not ok.')
 		}
 		console.log('Zpráva byla úspěšně odeslána. 🎉')
-		console.log(
-			'Všechny poslední zprávy si můžete prohlédnout na https://czechichat.deno.dev/.',
-		)
 	} catch (error) {
 		console.error(error)
 		console.error('Odesílání zprávy se nezdařilo. 😵')
